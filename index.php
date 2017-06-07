@@ -1,15 +1,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <!-- My first project begins! -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <title>TV Fuego S.A. - Inventario</title>
+</head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
  <style type="text/css">
 /* Add a black background color to the top navigation */
 .topnav {
@@ -76,7 +77,7 @@
 	height: 20px;
 	font-size: 16px;
 	text-align: left;
-    font-family: "Helvetica";
+  font-family: "Helvetica";
 
 }
 
@@ -160,6 +161,48 @@
     {
       background-color: #ff8d8d;
     }
+   .bort{
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+   }
+    body{
+        font-family: Arail, sans-serif;
+    }
+    /* Formatting search box */
+    .search-box{
+        width: 300px;
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+    }
+    .search-box input[type="text"]{
+        height: 32px;
+        padding: 5px 10px;
+        border: 1px solid #CCCCCC;
+        font-size: 14px;
+    }
+    .result{
+        position: absolute;        
+        z-index: 999;
+        top: 100%;
+        left: 0;
+    }
+    .search-box input[type="text"], .result{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    /* Formatting result items */
+    .result p{
+        margin: 0;
+        padding: 7px 10px;
+        border: 1px solid #CCCCCC;
+        border-top: none;
+        cursor: pointer;
+    }
+    .result p:hover{
+        background: #f2f2f2;
+    }
 
 </style>
 
@@ -171,84 +214,63 @@
 </div>
 <div align="center"><img src="https://www.foromedios.com/uploads/monthly_2016_04/tvfuego.jpg.7b5b19d1401746deec5cec7595a08b4e.jpg"></div>
 
-<div align="center" style="font-size: 20px">
-<form>
-	<h2 style="font-size: 18px"> Inventario
-	<input type="text" name="search">
-	<button style="text-align: center">Buscar</button>
 
-	</h2>
-
-</form>
-</div>
-
-
-<?php
-$conn = mysqli_connect("127.0.0.1", "root", "casas", "tvfuego");
-
-if (!$conn) {
-    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("backend-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+                
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
     
-    exit;
-}
-
-$sql = mysqli_query($conn,"SELECT * FROM sector");
-
-echo "<table border='1'>";
-
-$i = 0;
-while($row = $sql->fetch_assoc())
-{
-    if ($i == 0) {
-      $i++;
-      echo "<tr>";
-      foreach ($row as $key => $value) {
-        echo "<th>" . $key . "</th>";
-      }
-      echo "</tr>";
-    }
-    echo "<tr>";
-    foreach ($row as $value) {
-      echo "<td>" . $value . "</td>";
-    }
-    echo "</tr>";
-}
-echo "</table>";
-mysqli_close($conn);
-?>
-
-
-<!-- 
-
-TABLA sin BDD
-
-<div align="center" class="row">
-  <div  class="tablex">
-    <div class="col-xs-2"> Objeto</div>
-    <div class="col-xs-2"> Descripción</div>
-    <div class="col-xs-2"> Sector</div>
-    <div class="col-xs-2"> Estado</div>
-    <div class="col-xs-2"> Fecha retiro</div>
-  </div>
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+</head>
+<body>
+<div align="center">
+  
+   <div class="search-box">
+        <input type="text" autocomplete="off" placeholder="Buscar en inventario"/>
+        <div class="result"></div>
+        
+    </div>
 </div> 
-
-
-
-
-
-
-
-
- -->
-
-
-
-
-
-
 
 
 
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
