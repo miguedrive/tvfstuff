@@ -1,0 +1,42 @@
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!--Cargo CSS-->
+
+<link rel="stylesheet" href="styles.css">
+<title>Cargar</title>
+<body>
+<!-- Cargar items! -->
+
+<?php
+include 'load.php';
+?>
+
+<div class="topnav navbar" id="myTopnav">
+  <a href="index.html">Home</a>
+  <a href="load.html">Cargar</a>
+  <a href="#delete">Eliminar</a>
+  </div>
+<div align="center"><img src="http://i.imgur.com/7SDoFD9.png" width="180" height="50"></div>
+
+	
+<div align="center" style="margin-top: 20px">
+
+<form action="load.php" method="get">
+ Nombre:<input type="text" name="load1"><br>
+ Sector:<input type="text" name="load2"><br>
+ Descripcion:<input type="text" name="load3"><br>
+ Cantidad:<input type="text" name="load4"><br>
+ Categoria:<input type="text" name="load5"><br>
+Estado:<input type="text" name="load6"><br>
+
+  
+  <input type="submit" value="Agregar" class="btn btn-success" style="margin-top: 5px">
+
+
+</form>
+</div>
+
+</body>

@@ -1,0 +1,164 @@
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!--Cargo CSS-->
+
+<link rel="stylesheet" href="styles.css">
+
+
+<!-- My first project begins! -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>TV Fuego S.A. - Inventario</title>
+</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<div class="topnav navbar" id="myTopnav">
+  <a href="index.html">Home</a>
+  <a href="load.html">Cargar</a>
+  <a href="#delete">Eliminar</a>
+  </div>
+<div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
+
+
+</head>
+<body>
+
+<!-- Acá creamos el buscador y llamamos al search.php -->
+
+<!-- ESTO FUNCIONA!
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* obtener el valor ingresado */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("search.php", {term: inputVal}).done(function(data){
+                // Mostrar resultado en una lista
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Acá pone el valor encontrado en el search box
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script> -->
+</head>
+<body>
+
+<div align="center" style="margin-top: 20px">
+<form action="search.php" method="get">
+ <input type="text" name="valor"><br>
+  
+  <input type="submit" value="Buscar" class="btn btn-success" style="margin-top: 5px">
+
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
