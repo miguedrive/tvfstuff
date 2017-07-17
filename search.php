@@ -9,30 +9,31 @@
 <div class="topnav navbar" id="myTopnav">
   <a href="index.html">Home</a>
   <a href="load.html">Cargar</a>
-  <a href="#delete">Eliminar</a>
+  <a href="delete.html">Eliminar</a>
   </div>
 <div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
 
 <?php
-
+$valor = $_GET["valor"];
 include 'connection.php';
 // Check connection
 if (!$conn) {
     die("Fallo la conexión: " . mysqli_connect_error());
 }
+
 //Consulta SQL
 
 $sql = "SELECT * FROM objeto WHERE descripcion LIKE '%{$valor}%'";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn,$sql);
 
 if (mysqli_num_rows($result) > 0) {
     // Cada palabra encontrada se manda a una fila
-   
-    while($row = mysqli_fetch_assoc($result)) {
+       while($row = mysqli_fetch_assoc($result)) {
     	
     	echo " " . $row["nombre"]. " " . $row["descripcion"]. "<br>";
     }
 } else {
+	
     echo "No se encontró ese ítem.";
 }
 
