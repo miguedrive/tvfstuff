@@ -16,16 +16,11 @@
 
 include 'connection.php';
 
-if (!$conn) {
-    die("Fallo la conexión: " . mysqli_connect_error());
-}
+$sql = "SELECT * FROM objeto";
+$result = mysqli_query($conn,$sql);
 
-$sql5 = "SELECT * FROM objeto";
-$result5 = mysqli_query($conn,$sql5);
-
-echo "<form> 
-    <table>"; 
-    while ($row5 = mysqli_fetch_array($result5)) { 
+echo "<table>"; 
+    while ($row = mysqli_fetch_array($result)) { 
         echo  
             "<tr> 
             <td>{$row['ID']}</td> 
@@ -36,14 +31,12 @@ echo "<form>
             <td>{$row['Categoría']}</td>
             <td>{$row['Fecha ingreso']}</td>
             <td>{$row['Estado']}</td>
-            <td><input type='checkbox' name='check[".$row['items']."] 
+            <td><form><input type='checkbox' name='seleccionado' value='check[".$row['ID'."] 
             </tr>"; 
     } echo "</table>
-               <input type='submit' name='Submit' value='Submit'>
+    		<input type='submit' name='Submit' value='Submit'>
                </form>"; 
 
-        $checkbox[] = isset($_GET['checkbox']) ? true : false;
-    } else {  
-        echo '<p align="center" style="margin-top: 20px">Error!</p>'; 
-    }  
+        $checkbox = isset($_GET['checkbox']) ? true : false;
+    echo $checkbox;
 ?>
