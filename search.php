@@ -9,7 +9,7 @@
 <div class="topnav navbar" id="myTopnav">
   <a href="index.html">Home</a>
   <a href="load.html">Cargar</a>
-  <a href="delete.html">Eliminar</a>
+  <a href="delete.php">Eliminar</a>
   </div>
 <div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
 
