@@ -21,7 +21,19 @@ if (!$conn) {
     die("Fallo la conexión: " . mysqli_connect_error());
 }
 
-//Consulta SQL
+//agregado 19/7
+
+echo "<table class='table table-striped'>"; 
+echo "<thead>";
+echo "<td></td>";
+echo "<td>ID</td>";
+echo "<td>Sector</td>";
+echo "<td>Nombre</td>";
+echo "<td>Descripción</td>";
+echo "<td>Cantidad</td>";
+echo "<td>Categoría</td>";
+echo "<td>Fecha de entrega</td>";
+echo "<td>Estado</td>";
 
 $sql = "SELECT * FROM objeto WHERE descripcion LIKE '%{$valor}%'";
 $result = mysqli_query($conn,$sql);
@@ -29,8 +41,23 @@ $result = mysqli_query($conn,$sql);
 if (mysqli_num_rows($result) > 0) {
     // Cada palabra encontrada se manda a una fila
        while($row = mysqli_fetch_assoc($result)) {
+        //agregado 19/7
     	
-    	echo " " . $row["nombre"]. " " . $row["descripcion"]. "<br>";
+    	//echo " " . $row["nombre"]. " " . $row["descripcion"]. "<br>";
+echo  
+           "
+           <tr>
+            <td></td>
+            <td>".$row['id']."</td> 
+            <td>".$row['sector']."</td> 
+            <td>".$row['nombre']."</td> 
+            <td>".$row['descripcion']."</td>
+            <td>".$row['cantidad']."</td>
+            <td>".$row['categoria']."</td>
+            <td>".$row['fecha_entrega']."</td>
+            <td>".$row['estado']."</td>";
+            echo "</tr></thead>";
+
     }
 } else {
 	

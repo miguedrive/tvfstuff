@@ -22,21 +22,35 @@ include 'load.php';
 <div align="center"><img src="http://i.imgur.com/7SDoFD9.png" width="180" height="50"></div>
 
 	
-<div align="center" style="margin-top: 20px">
+<div align="left" style="margin-top: 20px">
+<h3>Cargar objeto en el inventario</h3>
 
 <form name="cargar" action="load.php" method="get">
- Nombre:<input type="text" name="load1"><br>
- Sector:<input type="text" name="load2"><br>
- Descripcion:<input type="text" name="load3"><br>
- Cantidad:<input type="text" name="load4"><br>
- Categoria:<input type="text" name="load5"><br>
-Estado:<input type="text" name="load6"><br> 
+<div class="form-group col-xs-3">
+Nombre:
+<input class="form-control input-sm" type="text" name="load1"></div>
+<div class="form-group col-xs-3">
+ Sector:
+ <input class="form-control input-sm" type="text" name="load2"></div>
+ <div class="form-group col-xs-3">
+ Descripcion:
+ <input class="form-control input-sm" type="text" name="load3"></div>
+<div class="form-group col-xs-3">
+ Cantidad:
+ <input class="form-control input-sm" type="text" name="load4"></div>
+<div class="form-group col-xs-3">
+ Categoria:
+ <input class="form-control input-sm" type="text" name="load5"></div>
+ <div class="form-group col-xs-3">
+Estado:
+<input class="form-control input-sm" type="text" name="load6"></div>
 
   
-  <input type="submit" value="Agregar" class="btn btn-success" style="margin-top: 5px">
+  </form>
 
-
-</form>
 </div>
+
+<input type="submit" value="Agregar" class="btn btn-success" style="margin-top: 15px">
+
 
 </body>
