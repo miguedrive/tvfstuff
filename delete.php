@@ -12,51 +12,18 @@
   </div>
 <div align="center"><img src="http://i.imgur.com/7SDoFD9.png" width="180" height="50"></div>
 
-
-<h2 align="center"> Eliminar artículo del inventario </h2>
+<h3 align="left"> Eliminar artículo del inventario </h3>
 
 <?php
 
 include 'connection.php';
+$sql1 = "SELECT * FROM objeto";
+$result = mysqli_query($sql1);
 
-$sql = "SELECT * FROM objeto";
-$result = mysqli_query($conn,$sql);
-
-
-echo "<table class='table table-striped'>"; 
-echo "<thead>";
-echo "<td></td>";
-echo "<td>ID</td>";
-echo "<td>Sector</td>";
-echo "<td>Nombre</td>";
-echo "<td>Descripción</td>";
-echo "<td>Cantidad</td>";
-echo "<td>Categoría</td>";
-echo "<td>Fecha de entrega</td>";
-echo "<td>Estado</td>";
-    while ($row = mysqli_fetch_array($result)) { 
-        echo  
-           "
-           <tr>
-           <td><button class='btn btn-xs btn-danger'>
-           <img src='http://www.iconsdb.com/icons/preview/white/delete-2-xxl.png' width='10' />
-           </button></td>
-           	<td>".$row['id']."</td> 
-            <td>".$row['sector']."</td> 
-            <td>".$row['nombre']."</td> 
-            <td>".$row['descripcion']."</td>
-            <td>".$row['cantidad']."</td>
-            <td>".$row['categoria']."</td>
-            <td>".$row['fecha_entrega']."</td>
-            <td>".$row['estado']."</td>";
-
-         //   <td><form><input type='checkbox' name='seleccionado' value='".$row['id']."'> 
-            echo "</tr></thead>"; 
-    }
-    echo "</table>";
-    
-   
-    echo "<input type='submit' name='Submit' align='center' value='Eliminar'></form>"; 
-
-        
-    
+echo "<select name='nombre'>";
+while ($row = mysqli_fetch_array($result)) {
+    echo "<option value='" . $row['nombre'] ."'>" . $row['descripcion'] ."</option>";
+}
+echo "</select>";
+echo "<h1>test</h1>";
+?>
