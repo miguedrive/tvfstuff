@@ -87,7 +87,8 @@ color: black;
     table {
       margin: auto;
       font-family: "Helvetica";
-      font-size: 10px;
+      font-size: 14px;
+      font-style: bold;
     }
 
     h1 {
@@ -99,12 +100,13 @@ color: black;
 
     table td {
       transition: all .5s;
+      font-size: 14px;
     }
     
     /* Table */
     .data-table {
       border-collapse: collapse;
-      font-size: 12px;
+      font-size: 14px;
       min-width: 537px;
       font: black;
     }
