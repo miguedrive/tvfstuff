@@ -31,6 +31,5 @@ $cargar6 = $_GET['load6'];
  $result2 = mysqli_query($conn, $sql);
 
 echo "Se agregó el ítem!";
-$conn->commit();
 $conn->close();
 ?>
