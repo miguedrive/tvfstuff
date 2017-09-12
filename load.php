@@ -26,11 +26,11 @@ $cargar6 = $_GET['load6'];
 
 
 //INSERT valores del usuario!
- $sql2 = "INSERT INTO objeto (nombre,sector,descripcion,cantidad,categoria,estado)
+ $sql = "INSERT INTO objeto (nombre,sector,descripcion,cantidad,categoria,estado)
  VALUES ('$cargar1','$cargar2','$cargar3','$cargar4','$cargar5','$cargar6')";
- $result2 = mysqli_query($conn, $sql2);
+ $result2 = mysqli_query($conn, $sql);
 
 echo "Se agregó el ítem!";
-
+$conn->commit();
 $conn->close();
 ?>

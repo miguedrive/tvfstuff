@@ -17,10 +17,17 @@
 $nombre = $_GET["nombre"];
 include 'connection.php';
 
-$sql = "DELETE FROM objeto WHERE nombre='%{$nombre}%'";
+$sql = "DELETE $nombre FROM objeto";
 $result = mysqli_query($conn,$sql);
 
-//if (mysqli_num_rows($result) > 0) {
+
+if (mysqli_num_rows($result) > 0) {
+	print("Elemento eliminado.");
+}
+else{
+	echo "Error";
+
+}
 
 
 ?>

@@ -31,7 +31,7 @@ echo "<td>Descripción</td>";
 echo "<td>Cantidad</td>";
 
 
-$sql = "SELECT id,sector,nombre,descripcion,cantidad FROM objeto";
+$sql = "SELECT nombre,descripcion,cantidad FROM objeto";
 $result = mysqli_query($conn,$sql);
 
 if (mysqli_num_rows($result) > 0) {
