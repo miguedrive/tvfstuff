@@ -31,7 +31,12 @@ $sql = "INSERT INTO objeto (nombre,sector,descripcion,cantidad,categoria,estado)
 
 $result = mysqli_query($conn,$sql);
 
-echo "done";
+if ($result){
+	echo "Se cargo exitosamente el ítem.";
+}
+else{
+	echo "No se pudo cargar el ítem.";
+}
 mysqli_close($conn);
 
 ?>

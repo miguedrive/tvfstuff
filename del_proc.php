@@ -15,10 +15,10 @@
 
 <?php
 include 'connection.php';
-$nombre = $_GET["valor"];
+$nombre = $_GET["nombre"];
 
 
-$sql = "DELETE FROM objeto WHERE nombre === '$valor'";
+$sql = "DELETE FROM objeto WHERE nombre LIKE '{$nombre}'";
 $result = mysqli_query($conn,$sql);
 
 
