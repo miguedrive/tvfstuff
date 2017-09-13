@@ -16,6 +16,7 @@
 <?php
 include 'connection.php';
 $nombre = $_GET["nombre"];
+$page = "delete.php";
 
 
 $sql = "DELETE FROM objeto WHERE  nombre LIKE '%{$nombre}%'";
@@ -24,13 +25,19 @@ $result = mysqli_query($conn,$sql);
 
 if ($result) {
 	
-	echo "Elemento eliminado.";
+	
+	echo "<script>
+             alert('Elemento eliminado.'); 
+             window.history.go(-1);
+     </script>";
+	
 	
 }
 else{
 	echo "Error";
 
 }
+
 
 
 ?>
