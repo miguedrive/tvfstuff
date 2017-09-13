@@ -14,14 +14,8 @@
 <div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
 
 <?php
-//$valor = $_GET["valor"];
-include 'connection.php';
-// Check connection
-//if (!$conn) {
-//    die("Fallo la conexión: " . mysqli_connect_error());
-//}
 
-//agregado 19/7
+include 'connection.php';
 
 echo "<table class='table table-striped'>"; 
 echo "<thead>";
@@ -37,9 +31,7 @@ $result = mysqli_query($conn,$sql);
 if (mysqli_num_rows($result) > 0) {
     // Cada palabra encontrada se manda a una fila
        while($row = mysqli_fetch_assoc($result)) {
-        //agregado 19/7
-    	
-    	//echo " " . $row["nombre"]. " " . $row["descripcion"]. "<br>";
+   
 echo  
            "
            <tr>
@@ -50,7 +42,7 @@ echo
 
             <td>
             <form action='del_proc.php' method='get'>
-            <input type='hidden' name='nombre'>
+            <input type='hidden' name='nombre' value=".$row['nombre'].">
             <input type='submit' value='X' class='btn-xs btn-danger'>
             ";
            
@@ -69,32 +61,3 @@ echo
 
 mysqli_close($conn);
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

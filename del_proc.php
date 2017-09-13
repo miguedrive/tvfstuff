@@ -18,12 +18,14 @@ include 'connection.php';
 $nombre = $_GET["nombre"];
 
 
-$sql = "DELETE FROM objeto WHERE nombre LIKE '{$nombre}'";
+$sql = "DELETE FROM objeto WHERE  nombre LIKE '%{$nombre}%'";
 $result = mysqli_query($conn,$sql);
 
 
 if ($result) {
+	
 	echo "Elemento eliminado.";
+	
 }
 else{
 	echo "Error";
