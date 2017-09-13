@@ -15,6 +15,7 @@
 <div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
 
 <?php
+
 include 'connection.php';
 
 $cargar1 = $_GET['load1'];
@@ -26,10 +27,11 @@ $cargar6 = $_GET['load6'];
 
 
 //INSERT valores del usuario!
- $sql = "INSERT INTO objeto (nombre,sector,descripcion,cantidad,categoria,estado)
- VALUES ('$cargar1','$cargar2','$cargar3','$cargar4','$cargar5','$cargar6')";
- $result2 = mysqli_query($conn, $sql);
+$sql = "INSERT INTO objeto (nombre,sector,descripcion,cantidad,categoria,estado) VALUES ('$cargar1','$cargar2','$cargar3','$cargar4','$cargar5','$cargar6')";
 
-echo "Se agregó el ítem!";
-$conn->close();
+$result = mysqli_query($conn,$sql);
+
+echo "done";
+mysqli_close($conn);
+
 ?>

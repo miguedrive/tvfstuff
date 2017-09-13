@@ -14,15 +14,16 @@
 <div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
 
 <?php
-$nombre = $_GET["nombre"];
 include 'connection.php';
+$nombre = $_GET["valor"];
 
-$sql = "DELETE $nombre FROM objeto";
+
+$sql = "DELETE FROM objeto WHERE nombre === '$valor'";
 $result = mysqli_query($conn,$sql);
 
 
-if (mysqli_num_rows($result) > 0) {
-	print("Elemento eliminado.");
+if ($result) {
+	echo "Elemento eliminado.";
 }
 else{
 	echo "Error";
