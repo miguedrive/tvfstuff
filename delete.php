@@ -27,13 +27,15 @@ echo "<td>Sector</td>";
 
 
 $sql = "SELECT nombre,descripcion,cantidad FROM objeto";
-$sql2= "SELECT nombres_sector FROM sector";
+
 $result = mysqli_query($conn,$sql);
-$res2= mysqli_query($conn,$sql2);
+
+$sectores = ['Sistemas', 'Comercial', 'Contenidos', 'Edicion', 'RRHH', 'Contable', 'Administracion', 'Redes', 'Tecnica', 'Otros' ];
+
 
 if (mysqli_num_rows($result) > 0) {
     // Cada palabra encontrada se manda a una fila
-       while($row = mysqli_fetch_assoc($result) and $row2=mysqli_fetch_assoc($res2)) {
+       while($row = mysqli_fetch_assoc($result) ) {
    
 echo  
            "
@@ -42,7 +44,7 @@ echo
             <td>".$row['nombre']." </td> 
             <td>".$row['descripcion']."</td>
             <td>".$row['cantidad']."</td>
-            <td>".$row2['nombres_sector']."</td>
+            <td>".$sectores[$row['sector']+1]."</td>
 
             <td>
             <form action='del_proc.php' method='get'>
@@ -59,7 +61,7 @@ echo
 
     }
 } else {
-	
+  
     echo "No se encontró ese ítem.";
 }
 
