@@ -13,7 +13,7 @@
   <a href="delete.php">Eliminar</a>
   </div>
 <div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
-
+'
 <?php
 
 include 'connection.php';

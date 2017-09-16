@@ -2,6 +2,7 @@
     background-color: #333;
     overflow: hidden;
     border: none;
+
 }
 
 /* Style the links inside the navigation bar */
@@ -12,7 +13,7 @@
     text-align: center;
     padding: 14px 11px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     border: none;
 
 }
@@ -48,20 +49,10 @@ color: black;
     -webkit-animation-duration: 90s;
     animation-duration: 90s;
     animation-iteration-count: infinite;
+    height: 8px;
 }
 
-/* estilo de las tablas */
-/*.margins{
-	margin-top: 60px;
-	text-align: center;
-    border: none;
-	border-collapse: collapse;
-    width: 50%;
-    text-align: left;
-    font-family: Helvetica;
-    
-    
-}*/
+
 
 .tablex{
 	display: table;

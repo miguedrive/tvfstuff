@@ -11,12 +11,12 @@
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
-<div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
+<div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="310" height="170"></div>
 
 <?php
 include 'connection.php';
 $nombre = $_GET["nombre"];
-$page = "delete.php";
+$refreshURL = "delete.php";
 
 
 $sql = "DELETE FROM objeto WHERE  nombre LIKE '%{$nombre}%'";
@@ -24,14 +24,11 @@ $result = mysqli_query($conn,$sql);
 
 
 if ($result) {
-	
-	
-	echo "<script>
-             alert('Elemento eliminado.'); 
-             window.history.go(-1);
-     </script>";
-	
-	
+	echo "Se eliminó exitosamente el objeto";
+  sleep(2);
+  header("Location:'delete.php");  
+  exit();
+  
 }
 else{
 	echo "Error";
