@@ -26,11 +26,11 @@ echo "<td>Cantidad</td>";
 echo "<td>Sector</td>";
 
 
-$sql = "SELECT nombre,descripcion,cantidad FROM objeto";
+$sql = "SELECT nombre,descripcion,cantidad,sector FROM objeto";
 
 $result = mysqli_query($conn,$sql);
 
-$sectores = ['Sistemas', 'Comercial', 'Contenidos', 'Edicion', 'RRHH', 'Contable', 'Administracion', 'Redes', 'Tecnica', 'Otros' ];
+$sectores = [' ', 'Sistemas', 'Comercial', 'Contenidos', 'Edicion', 'RRHH', 'Contable', 'Administracion', 'Redes', 'Tecnica', 'Otros' ];
 
 
 if (mysqli_num_rows($result) > 0) {
@@ -44,7 +44,7 @@ echo
             <td>".$row['nombre']." </td> 
             <td>".$row['descripcion']."</td>
             <td>".$row['cantidad']."</td>
-            <td>".$sectores[$row['sector']+1]."</td>
+            <td>".$sectores[$row['sector']]."</td>
 
             <td>
             <form action='del_proc.php' method='get'>
