@@ -6,27 +6,44 @@
 <!--Cargo CSS-->
 
 <link rel="stylesheet" href="styles.css">
+
+
+<!-- My first project begins! -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>TV Fuego S.A. - Inventario</title>
+</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <div class="topnav navbar" id="myTopnav">
   <a href="index.php">Home</a>
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
-<div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
+<div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="250" height="120"></div>
 
+<body>
+
+<div align="center" style="margin-top: 20px">
+<form action="search.php" method="get">
+ <input type="text"  name="valor">
+ <input type="submit" value="Buscar" class="btn btn-success" style="margin-top: 5px">
+
+</form>
+</div>
+</body>
+
+</html>
 <?php
-$valor = $_GET["valor"];
-include 'connection.php';
-// Check connection
-if (!$conn) {
-    die("Fallo la conexión: " . mysqli_connect_error());
-}
 
-//agregado 19/7
+include 'connection.php';
 
 echo "<table class='table table-striped'>"; 
 echo "<thead>";
 echo "<td></td>";
-echo "<td>ID</td>";
+
 echo "<td>Sector</td>";
 echo "<td>Nombre</td>";
 echo "<td>Descripción</td>";
@@ -35,33 +52,33 @@ echo "<td>Categoría</td>";
 echo "<td>Fecha de entrega</td>";
 echo "<td>Estado</td>";
 
-$sql = "SELECT * FROM objeto WHERE descripcion LIKE '%{$valor}%'";
+$sql = "SELECT * FROM objeto";
 $result = mysqli_query($conn,$sql);
 $sectores = [' ', 'Sistemas', 'Comercial', 'Contenidos', 'Edicion', 'RRHH', 'Contable', 'Administracion', 'Redes', 'Tecnica', 'Otros' ];
+$estados = [' ', 'En uso','disponible'];
+$categoria = [' ','Computadoras','Monitores','Impresoras','Telefono IP','Teclados','Mouse','Routers','Switch','Server','Dispositivo externo','Scanner','Parlantes'];
 
-if (mysqli_num_rows($result) > 0) {
-    // Cada palabra encontrada se manda a una fila
+if (mysqli_num_rows($result) >= 0) {
+   
        while($row = mysqli_fetch_assoc($result)) {
-        //agregado 19/7
-    	
-    	//echo " " . $row["nombre"]. " " . $row["descripcion"]. "<br>";
+       
 echo  
            "
            <tr>
             <td></td>
-            <td>".$row['id']."</td> 
+             
             <td>".$sectores[$row['sector']]."</td> 
             <td>".$row['nombre']."</td> 
             <td>".$row['descripcion']."</td>
             <td>".$row['cantidad']."</td>
-            <td>".$row['categoria']."</td>
+            <td>".$categoria[$row['categoria']]."</td>
             <td>".$row['fecha_entrega']."</td>
-            <td>".$row['estado']."</td>";
+            <td>".$estados[$row['estado']]."</td>";
             echo "</tr></thead>";
 
     }
 } else {
-	
+  
     echo "No se encontró ese ítem.";
 }
 
@@ -73,4 +90,31 @@ mysqli_close($conn);
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

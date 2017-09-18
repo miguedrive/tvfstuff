@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="styles.css">
 <div class="topnav navbar" id="myTopnav">
-  <a href="index.html">Home</a>
+  <a href="index.php">Home</a>
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
@@ -22,18 +22,8 @@ $refreshURL = "delete.php";
 $sql = "DELETE FROM objeto WHERE  nombre LIKE '%{$nombre}%'";
 $result = mysqli_query($conn,$sql);
 
+echo "Se eliminó exitosamente el objeto";
 
-if ($result) {
-	echo "Se eliminó exitosamente el objeto";
-  sleep(2);
-  header("Location:'delete.php");  
-  exit();
-  
-}
-else{
-	echo "Error";
-
-}
 
 
 

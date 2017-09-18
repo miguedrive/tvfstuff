@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="styles.css">
 <div class="topnav navbar" id="myTopnav">
-  <a href="index.html">Home</a>
+  <a href="index.php">Home</a>
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
