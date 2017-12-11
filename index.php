@@ -22,14 +22,15 @@
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
-<div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="250" height="120"></div>
+<div align="center"><img src="https://i.imgur.com/t8QFaB9.png" width="220" height="150"></div>
 
 <body>
 
-<div align="center" style="margin-top: 20px">
+<div align="center" style="margin-top: 33px">
 <form action="search.php" method="get">
- <input type="text"  name="valor">
- <input type="submit" value="Buscar" class="btn btn-success" style="margin-top: 5px">
+ <input type="text"  name="valor" class="form-control" style="width: 420px">
+ <div align="center">
+ <input type="submit" value="Buscar" class="btn btn-success" style="margin-top: 31px; margin-bottom: 10px"></div>
 
 </form>
 </div>
