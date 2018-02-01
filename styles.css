@@ -35,17 +35,14 @@ color: black;
     background-color: #ff4d4d;
     color: black;
     border: none;
-    height: 12px;
-
-}
+   }
 
 
 /* Add a color to the active/current link */
 .topnav a.active {
     background-color: #4CAF50;
     color: white;
-    border: none;
-    height: 12px
+    border: none;    
 }
 
 /* Animación de barra */
@@ -53,7 +50,7 @@ color: black;
     -webkit-animation-duration: 90s;
     animation-duration: 90s;
     animation-iteration-count: infinite;
-    height: 5px;
+  
 }
 
 
