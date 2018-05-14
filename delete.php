@@ -11,13 +11,13 @@
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
-<div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="210" height="110"></div>
+<div align="center"><img src="https://i.imgur.com/t8QFaB9.png" width="210" height="110"></div>
 
 <?php
 
 include 'connection.php';
 
-echo "<table class='table table-striped'>"; 
+echo "<table class='table table-striped'>";
 echo "<thead>";
 echo "<td></td>";
 echo "<td>Nombre</td>";
@@ -36,12 +36,12 @@ $sectores = [' ', 'Sistemas', 'Comercial', 'Contenidos', 'Edicion', 'RRHH', 'Con
 if (mysqli_num_rows($result) > 0) {
     // Cada palabra encontrada se manda a una fila
        while($row = mysqli_fetch_assoc($result) ) {
-   
-echo  
+
+echo
            "
            <tr>
             <td></td>
-            <td>".$row['nombre']." </td> 
+            <td>".$row['nombre']." </td>
             <td>".$row['descripcion']."</td>
             <td>".$row['cantidad']."</td>
             <td>".$sectores[$row['sector']]."</td>
@@ -51,17 +51,17 @@ echo
             <input type='hidden' name='nombre' value=".$row['nombre'].">
             <input type='submit' value='X' class='btn-xs btn-danger'>
             ";
-           
+
             echo "
             </form>
-            </td>            
+            </td>
             "      ;
-         
+
             echo "</tr></thead>";
 
     }
 } else {
-  
+
     echo "No se encontró ese ítem.";
 }
 

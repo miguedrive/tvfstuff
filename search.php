@@ -11,7 +11,7 @@
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
-<div align="center"><img src="http://i.imgur.com/GaTBft2.png" width="410" height="170"></div>
+<div align="center"><img src="https://i.imgur.com/t8QFaB9.png" width="410" height="170"></div>
 
 <?php
 $valor = $_GET["valor"];
@@ -23,7 +23,7 @@ if (!$conn) {
 
 //agregado 19/7
 
-echo "<table class='table table-striped'>"; 
+echo "<table class='table table-striped'>";
 echo "<thead>";
 echo "<td></td>";
 echo "<td>ID</td>";
@@ -43,15 +43,15 @@ if (mysqli_num_rows($result) > 0) {
     // Cada palabra encontrada se manda a una fila
        while($row = mysqli_fetch_assoc($result)) {
         //agregado 19/7
-    	
+
     	//echo " " . $row["nombre"]. " " . $row["descripcion"]. "<br>";
-echo  
+echo
            "
            <tr>
             <td></td>
-            <td>".$row['id']."</td> 
-            <td>".$sectores[$row['sector']]."</td> 
-            <td>".$row['nombre']."</td> 
+            <td>".$row['id']."</td>
+            <td>".$sectores[$row['sector']]."</td>
+            <td>".$row['nombre']."</td>
             <td>".$row['descripcion']."</td>
             <td>".$row['cantidad']."</td>
             <td>".$row['categoria']."</td>
@@ -61,16 +61,9 @@ echo
 
     }
 } else {
-	
+
     echo "No se encontró ese ítem.";
 }
 
 mysqli_close($conn);
 ?>
-
-
-
-
-
-
- 
