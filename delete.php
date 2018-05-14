@@ -11,7 +11,8 @@
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
-<div align="center"><img src="https://i.imgur.com/t8QFaB9.png" width="210" height="110"></div>
+<div align="center" style="margin-bottom: 42px"><img src="https://i.imgur.com/t8QFaB9.png" width="120" height="90" ></div>
+
 
 <?php
 

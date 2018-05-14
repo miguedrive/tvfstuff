@@ -22,7 +22,7 @@
   <a href="load.html">Cargar</a>
   <a href="delete.php">Eliminar</a>
   </div>
-<div align="center"><img src="https://i.imgur.com/t8QFaB9.png" width="220" height="150"></div>
+<div align="center"><img src="https://i.imgur.com/t8QFaB9.png" width="120" height="90"></div>
 
 <body>
 
@@ -41,7 +41,7 @@
 
 include 'connection.php';
 
-echo "<table class='table table-striped'>"; 
+echo "<table class='table table-striped'>";
 echo "<thead>";
 echo "<td></td>";
 
@@ -60,16 +60,16 @@ $estados = [' ', 'En uso','disponible'];
 $categoria = [' ','Computadoras','Monitores','Impresoras','Telefono IP','Teclados','Mouse','Routers','Switch','Server','Dispositivo externo','Scanner','Parlantes'];
 
 if (mysqli_num_rows($result) >= 0) {
-   
+
        while($row = mysqli_fetch_assoc($result)) {
-       
-echo  
+
+echo
            "
            <tr>
             <td></td>
-             
-            <td>".$sectores[$row['sector']]."</td> 
-            <td>".$row['nombre']."</td> 
+
+            <td>".$sectores[$row['sector']]."</td>
+            <td>".$row['nombre']."</td>
             <td>".$row['descripcion']."</td>
             <td>".$row['cantidad']."</td>
             <td>".$categoria[$row['categoria']]."</td>
@@ -79,43 +79,9 @@ echo
 
     }
 } else {
-  
+
     echo "No se encontró ese ítem.";
 }
 
 mysqli_close($conn);
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
